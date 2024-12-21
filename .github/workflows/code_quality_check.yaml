@@ -28,7 +28,7 @@ jobs:
 
       - name: Install Dependencies (conditional)
         run: |
-          if [ "$package-changed" = "true" ]
+          if [ ${package-changed} = "true" ]
           then
             npm install
           else:
