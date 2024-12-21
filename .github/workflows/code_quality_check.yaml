@@ -1,0 +1,43 @@
+name: static code quality check
+
+on:
+  pull_request:
+    branches: [development]
+
+jobs:
+  static_code_analysis:
+    name: lint
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18.19.1'
+
+      - name: Check for package.json Changes
+        id: packagejson-check
+        run: |
+          if [[ `git diff HEAD^ HEAD --name-only | grep "package.json"` ]]; then
+            echo "package-changed=true" >> $GITHUB_ENV
+          fi
+
+      - name: Install Dependencies (conditional)
+        run: |
+          if [ "$package-changed" = "true" ]; then
+            npm install
+          else:
+            npm ci # packge-lock.json file
+
+      - name: Run Lint
+        run: npx eslint . # Adjust this to match yo
+
+      - name: Upload ESLint Results
+        if: failure()
+        uses: actions/upload-artifact@v3
+        with:
+          name: eslint-results
+          path: eslint-output.log
