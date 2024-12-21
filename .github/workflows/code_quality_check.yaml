@@ -31,8 +31,9 @@ jobs:
           if [ ${package-changed} = "true" ]
           then
             npm install
-          else:
+          else
             npm ci # packge-lock.json file
+          fi
 
       - name: Run Lint
         run: npx eslint . # Adjust this to match yo
