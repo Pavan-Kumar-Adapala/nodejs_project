@@ -21,13 +21,15 @@ jobs:
       - name: Check for package.json Changes
         id: packagejson-check
         run: |
-          if [[ `git diff HEAD^ HEAD --name-only | grep "package.json"` ]]; then
+          if [[ `git diff HEAD^ HEAD --name-only | grep "package.json"` ]]
+          then
             echo "package-changed=true" >> $GITHUB_ENV
           fi
 
       - name: Install Dependencies (conditional)
         run: |
-          if [ "$package-changed" = "true" ]; then
+          if [ "$package-changed" = "true" ]
+          then
             npm install
           else:
             npm ci # packge-lock.json file
