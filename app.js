@@ -1,8 +1,8 @@
-const express = require('express');
+const express = require('express'); // No 'require' undefined error now
 const app = express();
 const router = express.Router();
 
-const path = __dirname + '/views/';
+const path = __dirname + '/views/'; // No '__dirname' undefined error now
 const port = 8080;
 
 router.use(function (req,res,next) {
