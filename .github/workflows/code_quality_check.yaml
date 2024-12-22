@@ -35,8 +35,8 @@ jobs:
             npm ci # packge-lock.json file
           fi
 
-      - name: Run Lint
-        run: npx eslint . # Adjust this to match yo
+      - name: Run ESLint
+        run: npm run lint
 
       - name: Upload ESLint Results
         if: failure()
