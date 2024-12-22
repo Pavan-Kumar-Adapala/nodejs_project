@@ -1,0 +1,16 @@
+{
+  "env": {
+    "node": true,  // Recognize Node.js globals like `require` and `__dirname`
+    "es2021": true // Enables modern ES syntax
+  },
+  "extends": [
+    "eslint:recommended" // Use the recommended ESLint rules
+  ],
+  "parserOptions": {
+    "ecmaVersion": 12 // Specify the JavaScript version (12 corresponds to ES2021)
+  },
+  "rules": {
+    // Add custom rules here if needed
+  }
+}
+
