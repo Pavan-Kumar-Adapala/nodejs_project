@@ -1,0 +1,26 @@
+{
+  "name": "nodejs-image-demo",
+  "version": "1.0.0",
+  "description": "nodejs image demo",
+  "author": "Pavan Kumar <adapalapavan5@gmail.com>",
+  "license": "MY",
+  "main": "app.js",
+  "keywords": [
+    "nodejs",
+    "bootstrap",
+    "express"
+  ],
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.14.0",
+    "prettier": "^3.4.2"
+  }
+}
